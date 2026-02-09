@@ -1,0 +1,141 @@
+/* Dégradé d'arrière-plan - Saint-Valentin */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(45deg, #ff7c7c, #ff3366, #ff99cc); /* Dégradé du rose au rouge */
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+    text-align: center;
+}
+
+/* Animation du dégradé */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Cœurs animés en haut de la page */
+#heart {
+    font-size: 7em; /* Cœur plus grand */
+    color: #ff3366;
+    animation: heartbeat 1.5s infinite;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+#heart:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+#heart:nth-child(3) {
+    animation-delay: 1s;
+}
+
+/* Cœur battant */
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+/* Appliquer une taille spécifique aux GIFs Tenor */
+.tenor-gif-embed {
+    max-width: 250px !important; /* Limite la largeur des GIFs à 250px, ajustez si nécessaire */
+    height: auto !important; /* Garde le ratio d'aspect */
+    margin: 0 auto; /* Centrer les GIFs */
+    display: block; /* Assurez-vous qu'ils sont affichés correctement */
+}
+
+/* Animation des boutons Oui et Non */
+button {
+    font-size: 2em;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#noButton, #yesButton {
+    font-size: 2.5em; /* Boutons plus gros */
+    padding: 20px 40px; /* Plus grands */
+}
+
+#noButton:hover, #yesButton:hover {
+    background-color: #ff9999; /* Couleur au survol */
+    transform: scale(1.1); /* Légère augmentation de taille au survol */
+}
+
+/* Animation de transition douce */
+h1, #surpriseMessage, #poem {
+    animation: fadeIn 2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Poème doux */
+#poem {
+    display: none; /* Cacher le poème par défaut sur index.html */
+    font-size: 1.5em;
+    color: #333;
+    margin-top: 30px;
+    font-style: italic;
+}
+
+/* Disparition du poème */
+#poem.hidden {
+    animation: fadeOut 2s forwards;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* Style général du contenu */
+#content {
+    position: relative;
+}
+
+#characters {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2em;
+    color: #ffffff;
+    margin: 20px 0;
+}
+
+#response {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Ajouter un peu de style pour centrer tout le contenu */
+#characters {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Empêcher que les messages ne se cachent derrière le bouton "Oui" */
+#messages {
+    position: relative;
+    z-index: 3; /* Les messages resteront au-dessus des boutons */
+    margin-top: 10px;
+}
+
+#response button {
+    z-index: 2; /* Le bouton "Oui" et "Non" seront derrière les messages */
+}
